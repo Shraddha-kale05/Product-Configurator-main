@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teknic Product Configurator</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <script>
+//       
+
+
+
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('NO-input').classList.remove('hidden');
+            document.getElementById('NC-input').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#NO-btn') && !sibling.querySelector('#NC-btn')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+$(document).ready(function() {
+    $('.btn-common').on('click', function() {
+        
+        var parent = $(this).closest('.option-group');
+       
+      
+
+       
+        var allButtons = parent.siblings().find('.btn-common');
+
+      
+        allButtons.toggle();
+        
+     
+        var nestedOptions = $(this).next();
+        nestedOptions.toggle(); 
+
+      
+        $(this).show();
+
+      
+    });
+    // $('.option-btn').on('click',function(){
+    //     var nestedOptions = $(this).next();
+    //     nestedOptions.toggle();
+    // })
+
+    
+});
+
+    </script>
+    
+    <div class="webtitle">
+<h1>Teknic Product Configurator</h1>
+    </div>
+
+    <!-- Main button to show all options -->
+    <button id="showOptionsBtn" class="main-btn">Products Configurator</button>
+
+    <!-- Container for all nested options -->
+    <div class="mastercon">
+    <div id="optionsContainer" class="container hidden">
+        <div class="option-group first">
+            <button class="option-btn btn-common">Push Button</button>
+            <div class="nested-options">
+                <div class="option-group">
+                    <button class="option-btn btn-common">Plastic Series</button>
+                    <div class="nested-options">
+                        <div class="option-group">
+                            <button class="option-btn btn-common">22.5 mm</button>
+                            <div class="nested-options">
+                                <div class="option-group">
+                                    <button class="option-btn btn-common">Screw Terminal</button>
+                                    <div class="nested-options">
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Momentory Actuators</button>
+                                            <div class="nested-options">
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common">Flush</button>
+                                                    <div class="nested-options">
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">White (P2AF1)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn btn-common"
+                                                                                id="NO-btn" >Normally Open</button>
+                                                                            <input type="number" id="NO-input"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NO code">
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn btn-common"
+                                                                                id="NC-btn">Normally Close</button>
+                                                                            <input type="number" id="NC-input"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NC code">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Black (P2AF2)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn btn-common">Normally
+                                                                                Open</button>
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn btn-common">Normally
+                                                                                Close</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Green (P2AF3)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn btn-common">Normally
+                                                                                Open</button>
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn btn-common">Normally
+                                                                                Close</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Red (P2AF4)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn btn-common">Normally
+                                                                                Open</button>
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn btn-common">Normally
+                                                                                Close</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Blue (P2AF6)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn btn-common">Normally
+                                                                                Open</button>
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn btn-common">Normally
+                                                                                close</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Yellow (P2AF8)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn btn-common">Normally
+                                                                                Open</button>
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn btn-common">Normally
+                                                                                Close</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common">Flush With Arrow Marking</button>
+                                                </div>
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common">Projecting</button>
+                                                </div>
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common">Flush Relay Reset Actuator</button>
+                                                </div>
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common">Booted</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Mashroom Head Actuators</button>
+                                        </div>
+
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Selector Actuators</button>
+                                        </div>
+
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Key Selector Actuators</button>
+                                        </div>
+
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Twin Actuators</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="option-group">
+                                    <button class="option-btn btn-common">Clip on Series</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="option-group">
+                            <button class="option-btn btn-common">16 mm</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="option-group">
+                    <button class="option-btn btn-common">Metal Series</button>
+                </div>
+            </div>
+        </div>
+        <!-- Sibling for Option 1 -->
+        <div class="option-group second">
+            <button class="option-btn btn-common btn-common">Control Station</button>
+            <div class="nested-options">
+                <div class="option-group">
+                    <button class="option-btn btn-common">Option 2.1</button>
+                    <div class="nested-options">
+                        <div class="option-group">
+                            <button class="option-btn btn-common">Option 2.1.1</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="option-group third">
+            <button class="option-btn btn-common btn-common">Potentiometer</button>
+            <div class="nested-options">
+                <div class="option-group">
+                    <button class="option-btn btn-common">22.5 mm</button>
+                    <div class="nested-options">
+                        <div class="option-group">
+                            <button class="option-btn btn-common">P2</button>
+                            <div class="nested-options">
+                                <div class="option-group">
+                                    <button class="option-btn btn-common">Momentory Actuator</button>
+                                    <div class="nested-options">
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Flush</button>
+                                            <div class="nested-options">
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common">White (P2AF1)</button>
+                                                    <div class="nested-options">
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common" id="NO-btn">NO</button>
+                                                                    <input type="number" id="NO-input" class="hidden"
+                                                                        placeholder="Enter NO code">
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common" id="NC-btn">NC</button>
+                                                                    <input type="number" id="NC-input" class="hidden"
+                                                                        placeholder="Enter NC code">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common">Black (P2AF2)</button>
+                                                    <div class="nested-options">
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NO</button>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NC</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common">Green (P2AF3)</button>
+                                                    <div class="nested-options">
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NO</button>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NC</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common">Red (P2AF4)</button>
+                                                    <div class="nested-options">
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NO</button>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NC</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common">Blue (P2AF6)</button>
+                                                    <div class="nested-options">
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NO</button>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NC</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common">Yellow (P2AF8)</button>
+                                                    <div class="nested-options">
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NO</button>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NC</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Flush With Arrow Marking</button>
+                                        </div>
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Projecting</button>
+                                        </div>
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Flush Relay Reset Actuator</button>
+                                        </div>
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Booted</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="option-group">
+                                    <button class="option-btn btn-common">Mashroom Head Actuator</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="option-group">
+                            <button class="option-btn btn-common">P4</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="option-group">
+                    <button class="option-btn btn-common">16 mm</button>
+                </div>
+            </div>
+        </div>
+        <!-- Sibling for Option 1 -->
+        <div class="option-group fourth">
+            <button class="option-btn btn-common btn-common">Conduit Accessories</button>
+            <div class="nested-options">
+                <div class="option-group">
+                    <button class="option-btn btn-common">Option 2.1</button>
+                    <div class="nested-options">
+                        <div class="option-group">
+                            <button class="option-btn btn-common">Option 2.1.1</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="option-group five">
+            <button class="option-btn btn-common btn-common">CAM Switches</button>
+            <div class="nested-options">
+                <div class="option-group">
+                    <button class="option-btn btn-common">22.5 mm</button>
+                    <div class="nested-options">
+                        <div class="option-group">
+                            <button class="option-btn btn-common">P2</button>
+                            <div class="nested-options">
+                                <div class="option-group">
+                                    <button class="option-btn btn-common">Momentory Actuator</button>
+                                    <div class="nested-options">
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Flush</button>
+                                            <div class="nested-options">
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common">White (P2AF1)</button>
+                                                    <div class="nested-options">
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common" id="NO-btn">NO</button>
+                                                                    <input type="number" id="NO-input" class="hidden"
+                                                                        placeholder="Enter NO code">
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common" id="NC-btn">NC</button>
+                                                                    <input type="number" id="NC-input" class="hidden"
+                                                                        placeholder="Enter NC code">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common">Black (P2AF2)</button>
+                                                    <div class="nested-options">
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NO</button>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NC</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common">Green (P2AF3)</button>
+                                                    <div class="nested-options">
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NO</button>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NC</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common">Red (P2AF4)</button>
+                                                    <div class="nested-options">
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NO</button>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NC</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common">Blue (P2AF6)</button>
+                                                    <div class="nested-options">
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NO</button>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NC</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common">Yellow (P2AF8)</button>
+                                                    <div class="nested-options">
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NO</button>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NC</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Flush With Arrow Marking</button>
+                                        </div>
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Projecting</button>
+                                        </div>
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Flush Relay Reset Actuator</button>
+                                        </div>
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Booted</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="option-group">
+                                    <button class="option-btn btn-common">Mashroom Head Actuator</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="option-group">
+                            <button class="option-btn btn-common">P4</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="option-group">
+                    <button class="option-btn btn-common">16 mm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="output">
+
+    <!-- Result display section -->
+    <div id="result" class="result hidden">
+        <h2>Generated Code:</h2>
+        <p id="generated-code"></p>
+    </div>
+    
+    <!-- Image Section -->
+    <div class="image-container hidden" id="imageContainer">
+        <img src="Flush.png" alt="Product Image" class="product-image">
+    </div>
+</div>
+</div>
+
+    <script src="script.js"></script>
+
+<script>
+            // Show or hide all options
+            document.getElementById('showOptionsBtn').addEventListener('click', function () {
+    const container = document.getElementById('optionsContainer');
+    container.classList.toggle('hidden');
+    this.textContent = container.classList.contains('hidden') ? 'Show All Options' : 'Hide All Options';
+});
+</script>
+
+</body>
+
+</html>

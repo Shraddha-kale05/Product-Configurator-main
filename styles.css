@@ -1,0 +1,157 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+   
+}
+.webtitle{
+    width: 96%;
+    height: 20px;
+    padding: 20px;
+    background-color: rgb(33, 33, 254);
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+h1 {
+    font-size: 24px;
+    color: white;
+    align-items: center;
+}
+
+.main-btn {
+    padding: 20px 30px;  /* Increased padding */
+    font-size: 20px;  /* Increased text size */
+    cursor: pointer;
+    background-color: navy;
+    color: white;
+    border: none;
+    border-radius: 8px; /* Rounded edges */
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.main-btn:hover {
+    background-color: rgb(33, 33, 254);
+}
+
+.mastercon{
+   
+    width: 100%;
+    display: grid;
+    grid-template-columns: 700px 300px;
+}
+
+.container {
+    margin-top: 20px;
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;  /* Increased padding */
+    border: 1px solid #ccc;
+    border-radius: 8px;  /* Rounded corners */
+    background-color: #f9f9f9;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.option-group {
+    margin-left: 20px;
+    padding: 12px;
+    background-color: #f9f9f9;
+}
+
+.option-group button {
+    display: block;
+    margin: 8px 0;
+    padding: 15px;  /* Increased padding */
+    font-size: 18px;  /* Increased text size */
+    border: none;
+    background-color: rgb(0, 183, 255);
+    color: white;
+    cursor: pointer;
+    border-radius: 8px; /* Rounded edges */
+    transition: background-color 0.3s ease;
+}
+
+.option-group button:hover {
+    background-color: rgb(64, 201, 255);
+}
+
+.nested-options {
+    margin-left: 20px;
+    display: none;
+}
+
+.container.hidden {
+    display: none;
+}
+
+.option-group button.active + .nested-options {
+    display: block;
+}
+
+input[type="number"] {
+    padding: 12px;
+    margin-top: 12px;
+    width: 130px;
+    font-size: 18px;  /* Increased font size */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.hidden {
+    display: none;
+}
+
+.result {
+    display: inline-block;
+    margin-left: 20px;
+    padding: 25px;  /* Increased padding */
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* More prominent shadow */
+    width: 50%;  /* Increased width */
+    font-size: 18px;
+    vertical-align: top;
+}
+
+.result h2 {
+    margin: 0;
+    font-size: 20px;  /* Increased text size */
+}
+.active{
+    display: none;
+}
+
+.result p {
+    margin: 15px 0 0;
+    font-weight: bold;
+    word-wrap: break-word;
+}
+
+.result.hidden {
+    display: none;
+}
+
+/* CSS for Image Container */
+.image-container {
+    /* text-align: center; */
+    margin-top: 0; /* Removed space between result and image */
+}
+
+.product-image {
+    width: 100%; /* Set width to 100% of the parent container */
+    max-width: 400px; /* Set a maximum width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Optional rounded corners */
+    margin-left: 20px;
+    margin-top: 10px;
+}
